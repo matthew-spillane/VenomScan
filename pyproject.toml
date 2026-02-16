@@ -36,8 +36,6 @@ select = ["E", "F", "I", "B", "UP"]
 
 [tool.ruff.lint.per-file-ignores]
 "venomscan/scanners/tls.py" = ["UP017"]
-"venomscan/severity.py" = ["UP017"]
-"tests/test_parsers.py" = ["UP017"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
