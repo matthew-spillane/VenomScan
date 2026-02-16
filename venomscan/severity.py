@@ -50,7 +50,7 @@ def severity_for_tls_window(not_after: str | None) -> tuple[str, str]:
     except ValueError:
         return "low", "Certificate expiration format unknown"
 
-    now = datetime.now(timezone.utc)
+    now = datetime.now(datetime.UTC)
     if expiry < now:
         return "high", "Certificate expired"
 
