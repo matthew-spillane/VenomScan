@@ -8,9 +8,9 @@
 - HTTP(S) probe (`/`) with status, server header, and key security headers
 - TLS certificate + session metadata when HTTPS is available
 - Output formats:
-  - Rich terminal summary with severity indicators
-  - JSON report with per-finding severity
-  - HTML report (dark theme + red accents + severity badges)
+  - Rich terminal summary
+  - JSON report
+  - HTML report (dark theme + red accents)
 
 > ⚠️ Recon only. No exploitation functionality is included.
 
@@ -39,7 +39,6 @@ venomscan example.com --nmap-args "-sT -Pn --top-ports 1000 -sV"
 - `--format [json|html|both]` (default: `both`)
 - `--timeout INTEGER` (default: `8`)
 - `--nmap-args TEXT` (advanced override)
-- `--no-nmap` (skip nmap stage for constrained environments)
 
 ## Output naming
 Reports are named:
