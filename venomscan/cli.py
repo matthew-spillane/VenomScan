@@ -1,6 +1,7 @@
 from __future__ import annotations
-from enum import Enum
+
 from datetime import datetime
+from enum import Enum
 from pathlib import Path
 
 import typer
@@ -15,10 +16,12 @@ from venomscan.scanners.http import probe_http_https
 from venomscan.scanners.nmap import DEFAULT_NMAP_ARGS, run_nmap
 from venomscan.scanners.tls import get_tls_info
 
+
 class OutputFormat(str, Enum):
-	json = "json"
-	html = "html"
-	both = "both"
+    json = "json"
+    html = "html"
+    both = "both"
+
 
 app = typer.Typer(add_completion=False, help="Safe recon scanner prototype")
 console = Console()
