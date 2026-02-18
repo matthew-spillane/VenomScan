@@ -1,8 +1,7 @@
 from __future__ import annotations
-
+from enum import Enum
 from datetime import datetime
 from pathlib import Path
-from typing import Literal
 
 import typer
 from rich.console import Console
@@ -16,6 +15,11 @@ from venomscan.scanners.http import probe_http_https
 from venomscan.scanners.nmap import DEFAULT_NMAP_ARGS, run_nmap
 from venomscan.scanners.tls import get_tls_info
 
+class OutputFormat(str, Enum):
+	json = "json"
+	html = "html"
+	both = "both"
+
 app = typer.Typer(add_completion=False, help="Safe recon scanner prototype")
 console = Console()
 
@@ -26,7 +30,7 @@ def main(
     out_dir: Path = typer.Option(  # noqa: B008
         Path("reports"), "--out-dir", help="Directory for reports"
     ),
-    format: Literal["json", "html", "both"] = typer.Option("both", "--format"),  # noqa: B008
+    format: OutputFormat = typer.Option(OutputFormat.both, "--format"),  # noqa: B008
     timeout: int = typer.Option(8, "--timeout", min=1, max=120),  # noqa: B008
     nmap_args: str = typer.Option(  # noqa: B008
         DEFAULT_NMAP_ARGS, "--nmap-args", help="Advanced nmap args"
